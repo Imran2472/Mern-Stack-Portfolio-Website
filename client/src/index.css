@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  font-family: "Outfit", sans-serif;
+  position: relative;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark-text--: #000000;
+  --light-navbar--: #ffffff4f;
+  /* --light-text: #ffffff; */
+  --about-text--: #374151;
+  --hover-box--: #fcf4ff;
+  --about-info--: #4b5563;
+
+  /* --color-primary: #6366F1;
+  --color-secondary: #F8312F;
+  --color-tertiary: #FFC0CB;
+  --color-light: #F5F5F5;
+  --color-dark: #212121;
+  --color-white: #fff; */
+}
+.dark-theme {
+  --dark-text-: #ffffff;
+  --about-text--: #374151;
+  --hover-box--: #fcf4ff;
+  --about-info--: #4b5563;
+  /* --color-primary: #212121;
+  --color-secondary: #212121;
+  --color-tertiary: #212121;
+  --color-light: #F5F5F5;
+  --color-dark: #fff;
+  --color-white: #212121; */
+}
+
+.my-shadow:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.services-disc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
