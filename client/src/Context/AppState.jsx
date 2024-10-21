@@ -3,7 +3,8 @@ import AppContext from "./AppContext";
 import { useEffect, useState } from "react";
 
 const AppState = (props) => {
-  const URI = "http://localhost:4000/api";
+  const URI =
+    "https://mern-stack-portfolio-website-hhrw.vercel.app/?vercelToolbarCode=z0YrEhNu2Hxx8co/api";
   const [homeData, setHomeData] = useState([]);
   const [aboutData, setAboutData] = useState([]);
   const [aboutSkill, setAboutSkill] = useState([]);

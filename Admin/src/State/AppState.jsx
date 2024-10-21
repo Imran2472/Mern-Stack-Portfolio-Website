@@ -24,7 +24,8 @@ const AppState = (props) => {
     GetAllContact();
   }, [reload]);
 
-  const URI = "http://localhost:4000/api";
+  const URI =
+    "https://mern-stack-portfolio-website-hhrw.vercel.app/?vercelToolbarCode=z0YrEhNu2Hxx8co/api";
   const GetAllHomeData = async () => {
     const Response = await axios.get(`${URI}/home`, {
       headers: {
