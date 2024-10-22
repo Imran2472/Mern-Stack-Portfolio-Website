@@ -15,7 +15,10 @@ dotenv.config();
 DbConnection();
 app.use(
   cors({
-    origin: true,
+    origin: [
+      "https://codewithimran.netlify.app/",
+      "https://admin-c-penal.netlify.app/",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
