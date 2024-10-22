@@ -19,7 +19,6 @@ app.use(
       "https://codewithimran.netlify.app/",
       "https://admin-c-penal.netlify.app/",
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
