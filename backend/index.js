@@ -16,8 +16,8 @@ DbConnection();
 app.use(
   cors({
     origin: [
-      "https://codewithimran.netlify.app",
-      "https://admin-c-penal.netlify.app",
+      "https://codewithimran.netlify.app/",
+      "https://admin-c-penal.netlify.app/",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
