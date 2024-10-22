@@ -3,7 +3,7 @@ import AppContext from "./AppContext";
 import { useEffect, useState } from "react";
 
 const AppState = (props) => {
-  const URI = "https://mern-stack-portfolio-website-936hy7r5c.vercel.app/api";
+  // const URI = "https://mern-stack-portfolio-website.vercel.app/api";
   const [homeData, setHomeData] = useState([]);
   const [aboutData, setAboutData] = useState([]);
   const [aboutSkill, setAboutSkill] = useState([]);
@@ -18,7 +18,7 @@ const AppState = (props) => {
     GetAllproject();
   }, []);
   const GetHomeData = async () => {
-    const Response = await axios.get(`${URI}/home`, {
+    const Response = await axios.get("/home", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -29,7 +29,7 @@ const AppState = (props) => {
     return Response.data;
   };
   const getAbout = async () => {
-    const Response = await axios.get(`${URI}/about`, {
+    const Response = await axios.get("/about", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -40,7 +40,7 @@ const AppState = (props) => {
     return Response.data;
   };
   const getAboutSkill = async () => {
-    const Response = await axios.get(`${URI}/skill`, {
+    const Response = await axios.get("/skill", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -52,7 +52,7 @@ const AppState = (props) => {
   };
 
   const AllServices = async () => {
-    const Response = await axios.get(`${URI}/services`, {
+    const Response = await axios.get("/services", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -63,7 +63,7 @@ const AppState = (props) => {
     return Response.data;
   };
   const GetAllproject = async () => {
-    const Response = await axios.get(`${URI}/project`, {
+    const Response = await axios.get("/project", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -76,7 +76,7 @@ const AppState = (props) => {
 
   const ContactAdd = async (fullname, email, number, message) => {
     const Response = await axios.post(
-      `${URI}/contact/usercontact`,
+      "/contact/usercontact",
       {
         fullname,
         email,

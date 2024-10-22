@@ -21,9 +21,9 @@ const AppState = (props) => {
     GetAllContact();
   }, [reload]);
 
-  const URI = "https://mern-stack-portfolio-website-936hy7r5c.vercel.app/api";
+  // const URI = "https://mern-stack-portfolio-website.vercel.app/api";
   const GetAllHomeData = async () => {
-    const Response = await axios.get(`${URI}/home`, {
+    const Response = await axios.get("/home", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -34,7 +34,7 @@ const AppState = (props) => {
   };
 
   const GetSingleHomw = async (id) => {
-    const Response = await axios.get(`${URI}/home/single/${id}`, {
+    const Response = await axios.get("/home/single/${id}", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -45,21 +45,17 @@ const AppState = (props) => {
   };
 
   const UpdateHome = async (formData, id) => {
-    const Response = await axios.put(
-      `${URI}/home/update-home/${id}`,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+    const Response = await axios.put("/home/update-home/${id}", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     setReload(true);
     return Response.data;
   };
 
   const GetAboutPage = async () => {
-    const Response = await axios.get(`${URI}/about`, {
+    const Response = await axios.get("/about", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -70,22 +66,18 @@ const AppState = (props) => {
   };
 
   const UpdateAbout = async (formData, id) => {
-    const Response = await axios.put(
-      `${URI}/about/update-about/${id}`,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      }
-    );
+    const Response = await axios.put("/about/update-about/${id}", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      withCredentials: true,
+    });
     setReload(true);
     return Response.data;
   };
 
   const GetSingleAbout = async (id) => {
-    const Response = await axios.get(`${URI}/about/${id}`, {
+    const Response = await axios.get("/about/${id}", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -95,7 +87,7 @@ const AppState = (props) => {
   };
 
   const GetAllSkill = async () => {
-    const Response = await axios.get(`${URI}/skill`, {
+    const Response = await axios.get("/skill", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -107,7 +99,7 @@ const AppState = (props) => {
 
   const AddSkill = async (title, icon, description) => {
     const Response = await axios.post(
-      `${URI}/skill/creat-skills`,
+      "/skill/creat-skills",
       {
         title,
         icon,
@@ -125,7 +117,7 @@ const AppState = (props) => {
 
   const UpdateSkill = async (title, icon, description, id) => {
     const Response = await axios.put(
-      `${URI}/skill/update-skill/${id}`,
+      "/skill/update-skill/${id}",
       {
         title,
         icon,
@@ -143,7 +135,7 @@ const AppState = (props) => {
   };
 
   const SingleSkill = async (id) => {
-    const Response = await axios.get(`${URI}/skill/${id}`, {
+    const Response = await axios.get("/skill/${id}", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -153,7 +145,7 @@ const AppState = (props) => {
   };
 
   const DeletSkill = async (id) => {
-    const Response = await axios.delete(`${URI}/skill/${id}`, {
+    const Response = await axios.delete("/skill/${id}", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -188,7 +180,7 @@ const AppState = (props) => {
     return Response.data;
   };
   const GetServices = async () => {
-    const Response = await axios.get(`${URI}/services`, {
+    const Response = await axios.get("/services", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -199,21 +191,17 @@ const AppState = (props) => {
   };
 
   const AddServices = async (formData) => {
-    const Response = await axios.post(
-      `${URI}/services/creat-services`,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      }
-    );
+    const Response = await axios.post("/services/creat-services", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      withCredentials: true,
+    });
     setReload(true);
     return Response.data;
   };
   const GetSIngleServices = async (id) => {
-    const Response = await axios.get(`${URI}/services/${id}`, {
+    const Response = await axios.get("/services/${id}", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -223,22 +211,18 @@ const AppState = (props) => {
   };
 
   const UpdateServices = async (formData, id) => {
-    const Response = await axios.put(
-      `${URI}/services/creat-update/${id}`,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      }
-    );
+    const Response = await axios.put("/services/creat-update/${id}", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      withCredentials: true,
+    });
     setReload(true);
     return Response.data;
   };
 
   const DeletServices = async (id) => {
-    const Response = await axios.delete(`${URI}/services/${id}`, {
+    const Response = await axios.delete("/services/${id}", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -273,23 +257,19 @@ const AppState = (props) => {
   };
 
   const UploadProject = async (formData) => {
-    const Response = await axios.post(
-      `${URI}/project/creat-project`,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      }
-    );
+    const Response = await axios.post("/project/creat-project", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      withCredentials: true,
+    });
 
     setReload(true);
     return Response.data;
   };
 
   const UpdateProject = async (formData, id) => {
-    const Response = await axios.put(`${URI}/project/${id}`, formData, {
+    const Response = await axios.put("/project/${id}", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -300,7 +280,7 @@ const AppState = (props) => {
   };
 
   const GetAllproject = async () => {
-    const Response = await axios.get(`${URI}/project`, {
+    const Response = await axios.get("/project", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -311,7 +291,7 @@ const AppState = (props) => {
     return Response.data;
   };
   const GetSngleProject = async (id) => {
-    const Response = await axios.get(`${URI}/project/${id}`, {
+    const Response = await axios.get("/project/${id}", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -321,7 +301,7 @@ const AppState = (props) => {
   };
 
   const DeleteProject = async (id) => {
-    const Response = await axios.delete(`${URI}/project/${id}`, {
+    const Response = await axios.delete("/project/${id}", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -358,7 +338,7 @@ const AppState = (props) => {
   };
 
   const GetAllContact = async () => {
-    const Response = await axios.get(`${URI}/contact`, {
+    const Response = await axios.get("/contact", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -369,7 +349,7 @@ const AppState = (props) => {
   };
 
   const DeletContact = async (id) => {
-    const Response = await axios.delete(`${URI}/contact/${id}`, {
+    const Response = await axios.delete("/contact/${id}", {
       headers: {
         "Content-Type": "application/json",
       },
