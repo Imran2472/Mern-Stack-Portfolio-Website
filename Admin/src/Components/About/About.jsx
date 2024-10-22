@@ -24,7 +24,7 @@ function About() {
   };
   useEffect(() => {
     GetData();
-  }, [id]);
+  }, [id, reload]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

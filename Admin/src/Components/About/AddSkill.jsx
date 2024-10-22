@@ -10,9 +10,6 @@ function AddSkill() {
   const [icon, setIcon] = React.useState("");
   const [description, setDescription] = React.useState([]);
 
-  //   useEffect(() => {
-  //     GetSkillData();
-  //   }, [reload]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await AddSkill(title, icon, description);

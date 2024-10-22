@@ -14,9 +14,6 @@ const AppState = (props) => {
   const [contactData, setContactData] = useState([]);
   useEffect(() => {
     GetAllHomeData();
-  }, []);
-
-  useEffect(() => {
     GetAboutPage();
     GetAllSkill();
     GetServices();
@@ -24,7 +21,7 @@ const AppState = (props) => {
     GetAllContact();
   }, [reload]);
 
-  const URI = "https://mern-stack-portfolio-website-hhrw.vercel.app/api";
+  const URI = "http://localhost:4000/api";
   const GetAllHomeData = async () => {
     const Response = await axios.get(`${URI}/home`, {
       headers: {
@@ -33,7 +30,6 @@ const AppState = (props) => {
       withCredentials: true,
     });
     setHomeData(Response?.data?.home[0]);
-    setReload(!reload);
     return Response.data;
   };
 
@@ -45,7 +41,6 @@ const AppState = (props) => {
       withCredentials: true,
     });
     setSingleData(Response?.data);
-    setReload(!reload);
     return Response.data;
   };
 
@@ -71,7 +66,6 @@ const AppState = (props) => {
       withCredentials: true,
     });
     setAboutData(Response?.data?.about[0]);
-    setReload(!reload);
     return Response.data;
   };
 
@@ -97,7 +91,6 @@ const AppState = (props) => {
       },
       withCredentials: true,
     });
-    setReload(!reload);
     return Response.data;
   };
 
@@ -108,7 +101,6 @@ const AppState = (props) => {
       },
       withCredentials: true,
     });
-    setReload(!reload);
     setAboutSkill(Response?.data);
     return Response.data;
   };
@@ -157,7 +149,6 @@ const AppState = (props) => {
       },
       withCredentials: true,
     });
-    setReload(true);
     return Response.data;
   };
 
@@ -228,7 +219,6 @@ const AppState = (props) => {
       },
       withCredentials: true,
     });
-    setReload(true);
     return Response.data;
   };
 
@@ -295,7 +285,6 @@ const AppState = (props) => {
     );
 
     setReload(true);
-    console.log(Response);
     return Response.data;
   };
 
@@ -328,7 +317,6 @@ const AppState = (props) => {
       },
       withCredentials: true,
     });
-    setReload(!reload);
     return Response.data;
   };
 
@@ -376,7 +364,6 @@ const AppState = (props) => {
       },
       withCredentials: true,
     });
-    setReload(!reload);
     setContactData(Response?.data);
     return Response.data;
   };

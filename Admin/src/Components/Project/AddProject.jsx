@@ -23,7 +23,6 @@ function AddProject() {
     formData.append("liveLink", liveLink);
     formData.append("image", image);
     const response = await UploadProject(formData);
-    console.log(response);
     if (response.success == true) {
       toast.success(response?.message, {
         position: "top-right",
