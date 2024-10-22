@@ -18,7 +18,7 @@ const AppState = (props) => {
     GetAllproject();
   }, []);
   const GetHomeData = async () => {
-    const Response = await axios.get("/home", {
+    const Response = await axios.get("/api/home", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -29,7 +29,7 @@ const AppState = (props) => {
     return Response.data;
   };
   const getAbout = async () => {
-    const Response = await axios.get("/about", {
+    const Response = await axios.get("/api/about", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -40,7 +40,7 @@ const AppState = (props) => {
     return Response.data;
   };
   const getAboutSkill = async () => {
-    const Response = await axios.get("/skill", {
+    const Response = await axios.get("/api/skill", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -52,7 +52,7 @@ const AppState = (props) => {
   };
 
   const AllServices = async () => {
-    const Response = await axios.get("/services", {
+    const Response = await axios.get("/api/services", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -63,7 +63,7 @@ const AppState = (props) => {
     return Response.data;
   };
   const GetAllproject = async () => {
-    const Response = await axios.get("/project", {
+    const Response = await axios.get("/api/project", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -76,7 +76,7 @@ const AppState = (props) => {
 
   const ContactAdd = async (fullname, email, number, message) => {
     const Response = await axios.post(
-      "/contact/usercontact",
+      "/api/contact/usercontact",
       {
         fullname,
         email,
