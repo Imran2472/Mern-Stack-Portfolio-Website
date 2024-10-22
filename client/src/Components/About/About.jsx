@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import profileImg from "../../assets/profile.jpg";
 import SchoolIcon from "@mui/icons-material/School";
-import htmlIcon from "../../assets/Html.png";
+import codinght from "../../assets/codinght.png";
 import cssIcon from "../../assets/css.png";
 import vscodeIcon from "../../assets/vscode.png";
 import mongooseIcon from "../../assets/mongoose.png";
@@ -82,7 +82,7 @@ function About({ DarkMode }) {
                 </div>
                 <div className="img w-[60px] h-[60px] rounded-lg border-[1.3px] border-[#6B7280] p-3 cursor-pointer hover:translate-y-[-10px] transition-transform ease-linear duration-600">
                   <img
-                    src={htmlIcon}
+                    src={codinght}
                     alt=""
                     className="w-[100%] h-[100%] object-cover"
                   />
