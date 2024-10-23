@@ -306,7 +306,7 @@ const AppState = (props) => {
       },
       withCredentials: true,
     });
-    setReload(!reload);
+
     setProjectData(Response?.data);
     return Response.data;
   };
