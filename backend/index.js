@@ -18,6 +18,7 @@ app.use(
     origin: [
       "https://codewithimran.netlify.app",
       "https://admin-c-penal.netlify.app",
+      "https://mern-stack-portfolio-website-taupe.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
