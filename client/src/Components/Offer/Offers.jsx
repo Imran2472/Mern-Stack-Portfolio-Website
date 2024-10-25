@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import StraightSroow from "../../assets/arrow.png";
 import AppContext from "../../Context/AppContext";
-function Offers({ DarkMode }) {
-  const { ServicesData } = useContext(AppContext);
+function Offers() {
+  const { ServicesData, DarkMode } = useContext(AppContext);
 
   return (
-    <div className={`my-[3rem] lg:px-[80px] px-[10px] ${DarkMode && "dark"}`}>
+    <div
+      className={`my-[3rem] lg:px-[80px] px-[10px] ${DarkMode && "dark"}`}
+      id="offer"
+    >
       <div className="text-center">
         <p className="text-[17px] text-black dark:text-white font-light">
           What i offer

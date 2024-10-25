@@ -3,9 +3,19 @@ import { Link } from "react-router-dom";
 import AppContext from "../State/AppContext";
 
 function SideNav() {
-  const { homeData, AboutData } = useContext(AppContext);
+  const { homeData, AboutData, open, HandleOpen } = useContext(AppContext);
   return (
-    <div className="w-[260px] bg-white fixed top-0 left-0 bottom-0 h-[100vh] overflow-y-auto border-r shadow-md">
+    <div
+      className={`w-[260px] bg-white fixed top-0 left-0 bottom-0 h-[100vh] overflow-y-auto border-r shadow-md max-[895px]:left-[-100%] ${
+        open ? "max-[895px]:left-[0]" : "max-[895px]:left-[-100%]"
+      }`}
+    >
+      <div
+        className="menubar text-black text-xl max-[895px]:block hidden absolute top-[20px] right-[20px]"
+        onClick={HandleOpen}
+      >
+        <i className={`fa-solid  ${open ? "fa-xmark" : "fa-bars"}`}></i>
+      </div>
       <div className="flex items-center gap-3 pt-[.2rem] justify-center">
         <h1 className="text-[2.4rem] text-[var(--dark-text--)] dark:text-white font-bold">
           Imran

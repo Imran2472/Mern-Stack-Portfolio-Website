@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const AppState = (props) => {
   const URI = "https://mern-stack-portfolio-website.vercel.app/api";
+  // const URI = "http://localhost:4000/api";
   const [homeData, setHomeData] = useState([]);
   const [aboutData, setAboutData] = useState([]);
   const [aboutSkill, setAboutSkill] = useState([]);
@@ -94,6 +95,30 @@ const AppState = (props) => {
     return Response.data;
   };
 
+  const GetSingleProject = async (id) => {
+    const Response = await axios.get(`${URI}/project/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    });
+    return Response.data;
+  };
+
+  const [DarkMode, setDarkMode] = useState(() => {
+    // Get dark mode from local storage
+    const savedMode = localStorage.getItem("DarkMode");
+    return savedMode === "true" ? true : false;
+  });
+
+  useEffect(() => {
+    // Update local storage when dark mode changes
+    localStorage.setItem("DarkMode", DarkMode);
+  }, [DarkMode]);
+  const HandleDarkMode = () => {
+    setDarkMode(DarkMode === false ? true : false);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -103,6 +128,9 @@ const AppState = (props) => {
         ServicesData,
         ProjectData,
         ContactAdd,
+        GetSingleProject,
+        HandleDarkMode,
+        DarkMode,
       }}
     >
       {props.children}

@@ -3,6 +3,7 @@ import AppContext from "./AppContext";
 import { useEffect } from "react";
 import axios from "axios";
 import { Bounce, toast } from "react-toastify";
+
 const AppState = (props) => {
   const [homeData, setHomeData] = useState([]);
   const [AboutData, setAboutData] = useState([]);
@@ -12,6 +13,16 @@ const AppState = (props) => {
   const [SingleData, setSingleData] = useState([]);
   const [projectData, setProjectData] = useState([]);
   const [contactData, setContactData] = useState([]);
+  const [user, setUser] = useState();
+  const [auth, setAuth] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const HandleOpen = () => {
+    setOpen(!open);
+  };
+  const URI = "https://mern-stack-portfolio-website.vercel.app/api";
+  // const URI = "http://localhost:4000/api";
+
   useEffect(() => {
     GetAllHomeData();
     GetAboutPage();
@@ -21,7 +32,52 @@ const AppState = (props) => {
     GetAllContact();
   }, [reload]);
 
-  const URI = "https://mern-stack-portfolio-website.vercel.app/api";
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setAuth(true);
+    } else {
+      setAuth(false);
+    }
+    GetProfile();
+  }, [reload, localStorage.getItem("token")]);
+
+  const Login = async (email, password) => {
+    const Response = await axios.post(
+      `${URI}/user/login`,
+      {
+        email,
+        password,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    localStorage.setItem("token", Response?.data?.token);
+    setReload(true);
+    setAuth(true);
+    return Response.data;
+  };
+
+  const Logout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+    setAuth(false);
+    toast.success("Logged Out Successfully", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      transition: Bounce,
+    });
+  };
+
   const GetAllHomeData = async () => {
     const Response = await axios.get(`${URI}/home`, {
       headers: {
@@ -402,7 +458,21 @@ const AppState = (props) => {
       });
     }
   };
-
+  const GetProfile = async () => {
+    try {
+      const Response = await axios.get(`${URI}/user/profile`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("token"),
+        },
+        withCredentials: true,
+      });
+      setUser(Response?.data);
+    } catch (error) {
+      console.error(error);
+      console.log("Error Get Profile", error.message);
+    }
+  };
   return (
     <AppContext.Provider
       value={{
@@ -430,6 +500,12 @@ const AppState = (props) => {
         DeleteProject,
         contactData,
         DeletContact,
+        Login,
+        user,
+        auth,
+        Logout,
+        HandleOpen,
+        open,
       }}
     >
       {props.children}

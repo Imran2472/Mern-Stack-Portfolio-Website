@@ -63,10 +63,10 @@ function UpdateServices() {
     <>
       <Navbar />
       <SideNav />
-      <div className="pl-[300px] py-[3rem]">
+      <div className="pl-[300px] py-[5rem] md:pr-[10px] max-[1000px]:pl-[270px] max-[895px]:px-[10px]">
         <form
           action=""
-          className="w-[600px] border-[#6b72804e] border-[.4px] rounded-lg p-5 bg-white shadow-xl"
+          className="w-[600px] border-[#6b72804e] border-[.4px] rounded-lg p-5 bg-white shadow-xl max-w-[100%]"
           onSubmit={handleSubmit}
         >
           <h1 className="text-xl text-black text-center font-semibold">

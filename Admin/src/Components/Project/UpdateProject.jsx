@@ -72,7 +72,7 @@ function UpdateProject() {
     <div>
       <Navbar />
       <SideNav />
-      <div className="pl-[300px] py-[3rem]">
+      <div className="pl-[300px] py-[5rem] md:pr-[10px] max-[1000px]:pl-[270px] max-[895px]:px-[10px]">
         <h1 className="text-2xl text-black font-medium">Update Project</h1>
         <form
           className="w-[600px] rounded-lg max-w-[100%] bg-white shadow-xl border p-5 mt-4"

@@ -8,6 +8,7 @@ import SkillRoute from "./Routes/Skill.Route.js";
 import ServicesRoute from "./Routes/Services.Route.js";
 import ProjectsRoute from "./Routes/Project.Route.js";
 import ContactRoute from "./Routes/ContactRoute.js";
+import LoginRoute from "./Routes/Login.Route.js";
 
 const app = express();
 app.use(json());
@@ -18,6 +19,8 @@ app.use(
     origin: [
       "https://codewithimran.netlify.app",
       "https://admin-c-penal.netlify.app",
+      // "http://localhost:5173",
+      // "http://localhost:5174",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
@@ -31,6 +34,7 @@ app.use("/api/skill", SkillRoute);
 app.use("/api/services", ServicesRoute);
 app.use("/api/project", ProjectsRoute);
 app.use("/api/contact", ContactRoute);
+app.use("/api/user", LoginRoute);
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the API!" });

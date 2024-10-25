@@ -10,7 +10,7 @@ function Contact() {
     <div>
       <Navbar />
       <SideNav />
-      <div className="pl-[300px] pr-[30px] py-[3rem]">
+      <div className="pl-[300px] py-[5rem] md:pr-[10px] max-[1000px]:pl-[270px] max-[895px]:px-[10px]">
         <div className="grid grid-cols-3 gap-5">
           {contactData?.contacts?.map((contact) => (
             <div

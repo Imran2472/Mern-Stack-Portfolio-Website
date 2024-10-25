@@ -7,11 +7,15 @@ import DarkStraight from "../../assets/dark-straight-arrow.png";
 import arrowLight from "../../assets/straight-srrow.png";
 import { useContext } from "react";
 import AppContext from "../../Context/AppContext";
-function Project({ DarkMode }) {
-  const { ProjectData } = useContext(AppContext);
+import { Link } from "react-router-dom";
+function Project() {
+  const { ProjectData, DarkMode } = useContext(AppContext);
   // console.log(ProjectData?.project);
   return (
-    <div className={`my-[5rem] lg:px-[80px] px-[10px] ${DarkMode && "dark"}`}>
+    <div
+      className={`my-[5rem] lg:px-[80px] px-[10px] ${DarkMode && "dark"}`}
+      id="project"
+    >
       <div className="text-center">
         <p className="text-[17px] text-black dark:text-white font-light">
           My portfolio
@@ -29,7 +33,7 @@ function Project({ DarkMode }) {
       <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 my-[2rem]">
         {/* col -1  */}
         {ProjectData?.project?.map((project) => (
-          <div className="cols" key={project?._id}>
+          <Link to={`/project-overview/${project?._id}`} key={project?._id}>
             <div className="p-3">
               <div className={`image relative group h-[260px]`}>
                 <img
@@ -52,7 +56,7 @@ function Project({ DarkMode }) {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="button text-center flex flex-col justify-center items-center w-[100%]">

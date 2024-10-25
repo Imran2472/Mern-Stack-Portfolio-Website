@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import DarkChe from "../../assets/darkche.png";
 import lightChe from "../../assets/lightche.png";
-function Footer({ DarkMode }) {
+import AppContext from "../../Context/AppContext";
+function Footer() {
+  const { DarkMode } = useContext(AppContext);
   return (
     <div className={`${DarkMode && "dark"} pt-[3rem] lg:px-[80px] px-[10px]`}>
       <div className="text-center mb-[4rem]">

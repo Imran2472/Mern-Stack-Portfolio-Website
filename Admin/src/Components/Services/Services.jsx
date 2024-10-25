@@ -11,8 +11,8 @@ function Services() {
     <>
       <Navbar />
       <SideNav />
-      <div className="pl-[300px] py-[3rem]">
-        <div className="grid grid-cols-3 gap-4 items-center">
+      <div className="pl-[300px] py-[5rem] md:pr-[10px] max-[1000px]:pl-[270px] max-[895px]:px-[10px]">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 items-center">
           {ServicesData?.service?.map((data) => (
             <div className="cols p-3 text-left" key={data?._id}>
               <div className="py-[2.5rem] px-[2rem] border-[1.5px] border-[#9CA3AF] rounded-lg hover:bg-[var(--hover-box--)] cursor-pointer hover:translate-y-[-5px] transition-transform duration-500 ease-in-out">
@@ -37,7 +37,10 @@ function Services() {
                   >
                     Update
                   </Link>
-                  <button className="text-white bg-blue-500 hover:bg-blue-700 cursor-pointer rounded-lg py-[6px] px-[10px] text-xs font-normal " onClick={()=> DeletServices(data?._id)}>
+                  <button
+                    className="text-white bg-blue-500 hover:bg-blue-700 cursor-pointer rounded-lg py-[6px] px-[10px] text-xs font-normal "
+                    onClick={() => DeletServices(data?._id)}
+                  >
                     Delete
                   </button>
                 </div>

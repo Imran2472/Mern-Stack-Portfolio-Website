@@ -10,9 +10,9 @@ function AllProject() {
     <div>
       <Navbar />
       <SideNav />
-      <div className="pl-[300px] py-[3rem] pr-[40px]">
+      <div className="pl-[300px] py-[5rem] md:pr-[10px] max-[1000px]:pl-[270px] max-[895px]:px-[10px]">
         <h1>All Project Page</h1>
-        <div className="grid grid-cols-3 gap-3 mt-6">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-6">
           {projectData?.project?.map((project) => (
             <div
               key={project?._id}

@@ -13,7 +13,7 @@ function Dashboard() {
     <>
       <Navbar />
       <SideNav />
-      <div className="pl-[280px] mt-10 px-[30px]">
+      <div className="pl-[300px] py-[5rem] md:pr-[10px] max-[1000px]:pl-[270px] max-[895px]:px-[10px]">
         <div className="grid grid-cols-3 gap-4">
           {info.map((data) => (
             <div

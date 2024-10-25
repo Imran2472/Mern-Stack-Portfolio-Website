@@ -11,14 +11,15 @@ import expressIocn from "../../assets/expressjs.png";
 import tailwandIcon from "../../assets/tailwand.png";
 import bootstrapeIcon from "../../assets/bootstrape.png";
 import AppContext from "../../Context/AppContext";
-function About({ DarkMode }) {
-  const { aboutData, aboutSkill } = useContext(AppContext);
+function About() {
+  const { aboutData, aboutSkill, DarkMode } = useContext(AppContext);
   return (
     <>
       <div
         className={`${
           DarkMode && "dark"
         } lg:px-[80px] px-[10px] text-center py-[4rem]`}
+        id="about"
       >
         <p className="text-[17px] text-black dark:text-white font-light">
           Introduction

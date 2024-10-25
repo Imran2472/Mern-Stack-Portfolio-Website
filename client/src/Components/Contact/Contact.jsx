@@ -5,8 +5,8 @@ import { useState } from "react";
 import { useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import AppContext from "../../Context/AppContext";
-function Contact({ DarkMode }) {
-  const { ContactAdd } = useContext(AppContext);
+function Contact() {
+  const { ContactAdd, DarkMode } = useContext(AppContext);
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -29,7 +29,10 @@ function Contact({ DarkMode }) {
   return (
     <>
       {/* Hello world */}
-      <div className={`${DarkMode && "dark"} py-[3rem] lg:px-[80px] px-[10px]`}>
+      <div
+        className={`${DarkMode && "dark"} py-[3rem] lg:px-[80px] px-[10px]`}
+        id="contact"
+      >
         <div className="text-center">
           <p className="text-[17px] text-black dark:text-white font-light">
             Connect with me

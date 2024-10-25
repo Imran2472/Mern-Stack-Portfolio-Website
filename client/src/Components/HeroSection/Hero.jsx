@@ -2,14 +2,16 @@ import React, { useContext } from "react";
 import StraightIcon from "../../assets/straight-srrow.png";
 import downloadIcon from "../../assets/downloadicon.png";
 import AppContext from "../../Context/AppContext";
-function Hero({ DarkMode }) {
-  const { homeData } = useContext(AppContext);
+function Hero() {
+  const { homeData, DarkMode } = useContext(AppContext);
+
   // console.log(homeData?.home[0]?.subtitle);
   return (
     <div
       className={`lg:px-[80px] px-[10px] grid grid-cols-6 max-md:block ${
         DarkMode && "dark"
       }`}
+      id="hero"
     >
       <div className="max-md:hidden"></div>
       {homeData?.home?.map((data) => (

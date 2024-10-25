@@ -11,8 +11,8 @@ function AboutServices() {
     <>
       <Navbar />
       <SideNav />
-      <div className="pl-[300px] py-[4rem] px-[60px]">
-        <div className="grid grid-cols-3 gap-4">
+      <div className="pl-[300px] py-[5rem] md:pr-[10px] max-[1000px]:pl-[270px] max-[895px]:px-[10px]">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
           {aboutSkill?.skill?.map((skill) => (
             <div
               className="col-one border-[#9CA3AF] py-[35px] pl-[30px] px-[10px] border-[1.4px] rounded-lg text-left hover:bg-[var(--hover-box--)] cursor-pointer hover:translate-y-[-5px] transition-transform duration-500 ease-in-out bg-white"

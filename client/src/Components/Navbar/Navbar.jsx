@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ArrowUp from "../../assets/light-arrow.png";
 import ArrowUplight from "../../assets/org-light-arrow.png";
 import SunIcon from "../../assets/sun.png";
@@ -6,9 +6,11 @@ import darkIcon from "../../assets/dark.png";
 import bgImage from "../../assets/headerbg.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-function Navbar({ HandleDarkMode, DarkMode }) {
+import AppContext from "../../Context/AppContext";
+function Navbar() {
   const [ScrollHeader, setScrollHeader] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { DarkMode, HandleDarkMode } = useContext(AppContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,36 +67,51 @@ function Navbar({ HandleDarkMode, DarkMode }) {
             }`}
           >
             <ul
-              className={`flex items-center gap-1 py-[10px] px-[10px] rounded-full max-lg:flex-col max-lg:gap-3 max-lg:bg-transparent max-lg:items-start max-lg:w-[100%] max-lg:dark:border-[0] ${
+              className={`flex items-center gap-1 py-[14px] px-[10px] rounded-full max-lg:flex-col max-lg:gap-3 max-lg:bg-transparent max-lg:items-start max-lg:w-[100%] max-lg:dark:border-[0] ${
                 ScrollHeader
                   ? "bg-transparent dark:border-[0]"
                   : "bg-[#ffffff74] backdrop:blur-[8px]"
               } dark:border-[#fff] dark:border-[.5px] dark:bg-transparent `}
             >
-              <li
-                className={`py-[6px] px-[15px] text-base dark:text-white text-[#000000] rounded-full hover:bg-gradient-to-r hover:from-[#b820e6] hover:to-[#da7d20] ease-in hover:text-[#fff] cursor-pointer`}
-              >
-                Home
+              <li>
+                <a
+                  className={`py-[6px] px-[15px] text-base dark:text-white text-[#000000] rounded-full hover:bg-gradient-to-r hover:from-[#b820e6] hover:to-[#da7d20] ease-in hover:text-[#fff] cursor-pointer`}
+                  href="#hero"
+                >
+                  Home
+                </a>
               </li>
-              <li
-                className={`py-[6px] px-[15px] text-base dark:text-white text-[#000000] rounded-full hover:bg-gradient-to-r hover:from-[#b820e6] hover:to-[#da7d20] ease-in hover:text-[#fff] cursor-pointer`}
-              >
-                About me
+              <li className="">
+                <a
+                  href="#about"
+                  className={`py-[6px] px-[15px] text-base dark:text-white text-[#000000] rounded-full hover:bg-gradient-to-r hover:from-[#b820e6] hover:to-[#da7d20] ease-in hover:text-[#fff] cursor-pointer`}
+                >
+                  About me
+                </a>
               </li>
-              <li
-                className={`py-[6px] px-[15px] text-base dark:text-white text-[#000000] rounded-full hover:bg-gradient-to-r from-[#b820e6] to-[#da7d20] ease-in hover:text-[#fff] cursor-pointer`}
-              >
-                Services
+              <li>
+                <a
+                  className={`py-[6px] px-[15px] text-base dark:text-white text-[#000000] rounded-full hover:bg-gradient-to-r from-[#b820e6] to-[#da7d20] ease-in hover:text-[#fff] cursor-pointer`}
+                  href="#offer"
+                >
+                  Services
+                </a>
               </li>
-              <li
-                className={`py-[6px] px-[15px] text-base dark:text-white text-[#000000] rounded-full hover:bg-gradient-to-r from-[#b820e6] to-[#da7d20] ease-in hover:text-[#fff] cursor-pointer`}
-              >
-                My Work
+              <li>
+                <a
+                  className={`py-[6px] px-[15px] text-base dark:text-white text-[#000000] rounded-full hover:bg-gradient-to-r from-[#b820e6] to-[#da7d20] ease-in hover:text-[#fff] cursor-pointer`}
+                  href="#project"
+                >
+                  My Work
+                </a>
               </li>
-              <li
-                className={`py-[6px] px-[15px] text-base dark:text-white text-[#000000] rounded-full hover:bg-gradient-to-r from-[#b820e6] to-[#da7d20] ease-in hover:text-[#fff] cursor-pointer`}
-              >
-                Contact Me
+              <li>
+                <a
+                  className={`py-[6px] px-[15px] text-base dark:text-white text-[#000000] rounded-full hover:bg-gradient-to-r from-[#b820e6] to-[#da7d20] ease-in hover:text-[#fff] cursor-pointer`}
+                  href="#contact"
+                >
+                  Contact Me
+                </a>
               </li>
             </ul>
           </div>

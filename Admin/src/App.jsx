@@ -14,23 +14,31 @@ import AllProject from "./Components/Project/AllProject";
 import AddProject from "./Components/Project/AddProject";
 import UpdateProject from "./Components/Project/UpdateProject";
 import Contact from "./Components/Contact/Contact";
+import Login from "./Components/Login/Login";
+import { useContext } from "react";
+import AppContext from "./State/AppContext";
 function App() {
+  const { auth } = useContext(AppContext);
   return (
     <>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/home/:id" element={<Home />} />
-        <Route path="/about/:id" element={<About />} />
-        <Route path="/about-skill" element={<AboutServices />} />
-        <Route path="/add-skill" element={<AddSkill />} />
-        <Route path="/update-skill/:id" element={<UpdateSkill />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/add-services" element={<AddServices />} />
-        <Route path="/update-services/:id" element={<UpdateServices />} />
-        <Route path="/all-project" element={<AllProject />} />
-        <Route path="/add-project" element={<AddProject />} />
-        <Route path="/update-project/:id" element={<UpdateProject />} />
-        <Route path="/conact-details" element={<Contact />} />
+        <Route path="/" element={auth ? <Dashboard /> : <Login />} />
+        {auth && (
+          <>
+            <Route path="/home/:id" element={<Home />} />
+            <Route path="/about/:id" element={<About />} />
+            <Route path="/about-skill" element={<AboutServices />} />
+            <Route path="/add-skill" element={<AddSkill />} />
+            <Route path="/update-skill/:id" element={<UpdateSkill />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/add-services" element={<AddServices />} />
+            <Route path="/update-services/:id" element={<UpdateServices />} />
+            <Route path="/all-project" element={<AllProject />} />
+            <Route path="/add-project" element={<AddProject />} />
+            <Route path="/update-project/:id" element={<UpdateProject />} />
+            <Route path="/conact-details" element={<Contact />} />
+          </>
+        )}
       </Routes>
       <ToastContainer />
     </>
