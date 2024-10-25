@@ -19,8 +19,12 @@ app.use(
     origin: [
       "https://codewithimran.netlify.app",
       "https://admin-c-penal.netlify.app",
+<<<<<<< HEAD
       // "http://localhost:5173",
       // "http://localhost:5174",
+=======
+      "https://mern-stack-portfolio-website-taupe.vercel.app",
+>>>>>>> 15c6b9dc77d374b9a2b85f37b1ba7c9dbeeeb51c
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
