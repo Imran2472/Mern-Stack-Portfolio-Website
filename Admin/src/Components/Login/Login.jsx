@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
     const res = await Login(email, password);
     if (res.success) {
-      navigate("/");
+      window.location.href = "/";
       toast.success(res.message, {
         position: "top-right",
         autoClose: 5000,

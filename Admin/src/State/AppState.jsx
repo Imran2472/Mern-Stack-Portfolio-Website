@@ -57,7 +57,6 @@ const AppState = (props) => {
       }
     );
     localStorage.setItem("token", Response?.data?.token);
-    setReload(true);
     return Response.data;
   };
 
