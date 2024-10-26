@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import SideNav from "../../Dashboard/SideNav";
 import AppContext from "../../State/AppContext";
 import { Link } from "react-router-dom";
-import Spiners from "../../../../client/src/Components/Spiners/Spiners";
+import Spiners from "../Spiners/Spiners";
 
 function AboutServices() {
   const { aboutSkill, DeletSkill } = useContext(AppContext);
