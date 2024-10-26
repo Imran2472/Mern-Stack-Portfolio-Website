@@ -9,15 +9,17 @@ import Footer from "../Footer/Footer";
 
 function HomePage() {
   return (
-    <div className="max-w-[1600px] mx-auto">
-      <Navbar  />
-      <Hero  />
-      <About  />
-      <Offers  />
-      <Project  />
-      <Contact  />
-      <Footer  />
-    </div>
+    <>
+      <Navbar />
+      <div className="max-w-[1600px] mx-auto">
+        <Hero />
+        <About />
+        <Offers />
+        <Project />
+        <Contact />
+        <Footer />
+      </div>
+    </>
   );
 }
 

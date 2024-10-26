@@ -133,16 +133,18 @@ function Navbar() {
                 />
               )}
             </div>
-            <div className="flex items-center gap-3 border-[1px] border-[#6B7280] rounded-full py-[10px] px-[25px]  hover:bg-[var(--hover-box--)] cursor-pointer dark:hover:bg-[#2A004A] text-black dark:text-white dark:border-[#fff] max-lg:hidden">
-              <button className="text-base font-normal">Contact</button>
-              <span>
-                <img
-                  src={DarkMode ? ArrowUplight : ArrowUp}
-                  alt=""
-                  className="w-3 h-3"
-                />
-              </span>
-            </div>
+            <a href="tel:+923002472740">
+              <div className="flex items-center gap-3 border-[1px] border-[#6B7280] rounded-full py-[10px] px-[25px]  hover:bg-[var(--hover-box--)] cursor-pointer dark:hover:bg-[#2A004A] text-black dark:text-white dark:border-[#fff] max-lg:hidden">
+                <button className="text-base font-normal">Contact</button>
+                <span>
+                  <img
+                    src={DarkMode ? ArrowUplight : ArrowUp}
+                    alt=""
+                    className="w-3 h-3"
+                  />
+                </span>
+              </div>
+            </a>
             <div
               className="text-lg hidden max-lg:block dark:text-white text-black"
               onClick={handleOpen}
