@@ -83,4 +83,4 @@ export const DeleteSkill = async (req, res) => {
     res.json({ success: false, error: error.message });
     console.log("Error While Deleting Skill", error.message);
   }
-}
+};

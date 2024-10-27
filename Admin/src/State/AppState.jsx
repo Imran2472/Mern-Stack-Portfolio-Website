@@ -38,6 +38,7 @@ const AppState = (props) => {
       setAuth(true);
     } else {
       setAuth(false);
+      Logout();
     }
     GetProfile();
   }, [reload, localStorage.getItem("token")]);
