@@ -10,10 +10,10 @@ import { Authorizations } from "../config/Validation.js";
 
 const router = express.Router();
 
-router.post("/creat-skills",Authorizations ,CreatSkill);
-router.put("/update-skill/:id", UpdateSkill);
+router.post("/creat-skills", Authorizations, CreatSkill);
+router.put("/update-skill/:id", Authorizations, UpdateSkill);
 router.get("/", AllSkilss);
 router.get("/:id", GetSingleSkill);
-router.delete("/:id", DeleteSkill);
+router.delete("/:id", Authorizations, DeleteSkill);
 
 export default router;

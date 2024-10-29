@@ -35,10 +35,11 @@ const AppState = (props) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setAuth(true);
+      setAuth(!auth);
     } else {
+      setUser(null);
       setAuth(false);
-      Logout();
+      localStorage.removeItem("token");
     }
     GetProfile();
   }, [reload, localStorage.getItem("token")]);
@@ -65,6 +66,7 @@ const AppState = (props) => {
     localStorage.removeItem("token");
     setUser(null);
     setAuth(false);
+    window.location.href = "/";
     toast.success("Logged Out Successfully", {
       position: "top-right",
       autoClose: 5000,
@@ -81,6 +83,7 @@ const AppState = (props) => {
     const Response = await axios.get(`${URI}/home`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -92,10 +95,12 @@ const AppState = (props) => {
     const Response = await axios.get(`${URI}/home/single/${id}`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
     setSingleData(Response?.data);
+
     return Response.data;
   };
 
@@ -106,6 +111,7 @@ const AppState = (props) => {
       {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: localStorage.getItem("token"),
         },
       }
     );
@@ -117,6 +123,7 @@ const AppState = (props) => {
     const Response = await axios.get(`${URI}/about`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -131,6 +138,7 @@ const AppState = (props) => {
       {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: localStorage.getItem("token"),
         },
         withCredentials: true,
       }
@@ -143,6 +151,7 @@ const AppState = (props) => {
     const Response = await axios.get(`${URI}/about/${id}`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -153,6 +162,7 @@ const AppState = (props) => {
     const Response = await axios.get(`${URI}/skill`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -171,6 +181,7 @@ const AppState = (props) => {
       {
         headers: {
           "Content-Type": "application/json",
+          Authorization: localStorage.getItem("token"),
         },
         withCredentials: true,
       }
@@ -189,6 +200,7 @@ const AppState = (props) => {
       {
         headers: {
           "Content-Type": "application/json",
+          Authorization: localStorage.getItem("token"),
         },
         withCredentials: true,
       }
@@ -211,6 +223,7 @@ const AppState = (props) => {
     const Response = await axios.delete(`${URI}/skill/${id}`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -246,6 +259,7 @@ const AppState = (props) => {
     const Response = await axios.get(`${URI}/services`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -260,6 +274,7 @@ const AppState = (props) => {
       {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: localStorage.getItem("token"),
         },
         withCredentials: true,
       }
@@ -271,6 +286,7 @@ const AppState = (props) => {
     const Response = await axios.get(`${URI}/services/${id}`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -284,6 +300,7 @@ const AppState = (props) => {
       {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: localStorage.getItem("token"),
         },
         withCredentials: true,
       }
@@ -296,6 +313,7 @@ const AppState = (props) => {
     const Response = await axios.delete(`${URI}/services/${id}`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -334,6 +352,7 @@ const AppState = (props) => {
       {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: localStorage.getItem("token"),
         },
         withCredentials: true,
       }
@@ -347,6 +366,7 @@ const AppState = (props) => {
     const Response = await axios.put(`${URI}/project/${id}`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -358,6 +378,7 @@ const AppState = (props) => {
     const Response = await axios.get(`${URI}/project`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -369,6 +390,7 @@ const AppState = (props) => {
     const Response = await axios.get(`${URI}/project/${id}`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -379,6 +401,7 @@ const AppState = (props) => {
     const Response = await axios.delete(`${URI}/project/${id}`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -416,6 +439,7 @@ const AppState = (props) => {
     const Response = await axios.get(`${URI}/contact`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });
@@ -427,6 +451,7 @@ const AppState = (props) => {
     const Response = await axios.delete(`${URI}/contact/${id}`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       withCredentials: true,
     });

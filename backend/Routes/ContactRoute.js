@@ -4,11 +4,12 @@ import {
   DeleteContact,
   GetContact,
 } from "../Controllers/Contact.Controller.js";
+import { Authorizations } from "../config/Validation.js";
 
 const router = express.Router();
 
 router.post("/usercontact", CreatContact);
-router.get("/", GetContact);
-router.delete("/:id", DeleteContact);
+router.get("/", Authorizations, GetContact);
+router.delete("/:id", Authorizations, DeleteContact);
 
 export default router;
