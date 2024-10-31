@@ -37,12 +37,10 @@ const AppState = (props) => {
     if (token) {
       setAuth(!auth);
     } else {
-      setUser(null);
       setAuth(false);
-      localStorage.removeItem("token");
     }
     GetProfile();
-  }, [reload, localStorage.getItem("token")]);
+  }, [localStorage.getItem("token")]);
 
   const Login = async (email, password) => {
     const Response = await axios.post(

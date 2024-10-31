@@ -34,9 +34,9 @@ function ProjectReview() {
   return (
     <div>
       <Navbar />
-      <div className={`py-[3rem] ${DarkMode && "dark"}`}>
+      <div className={`py-[2rem] ${DarkMode && "dark"} max-w-[1600px] mx-auto`}>
         <div className="lg:px-[80px] md:px-[10px] sm:px-[10px] grid lg:grid-cols-5 md:grid-cols-6 py-[4rem] gap-5 max-[600px]:gap-10 items-start">
-          <div className="lg:col-span-3 md:col-span-4 border rounded-xl">
+          <div className="lg:col-span-3 md:col-span-4">
             <div className="content p-5">
               <div className="title text-[20px] font-medium text-gray-900 dark:text-white">
                 {project?.title}
@@ -88,22 +88,22 @@ function ProjectReview() {
             </div>
           </div>
 
-          <div className="lg:col-span-2 md:col-span-2 border rounded-xl p-[1.5rem]">
+          <div className="lg:col-span-2 md:col-span-2 rounded-md shadow-sm p-[1.5rem]">
             {filteredProject?.map((data) => (
               <div
-                className="grid lg:grid-cols-3 md:grid-cols-2 items-center cursor-pointer"
-                onClick={() => handleChange(data._id)}
-                key={data._id}
+                className="grid lg:grid-cols-3 md:grid-cols-2 items-center cursor-pointer max-[500px]:gap-5"
+                onClick={() => handleChange(data?._id)}
+                key={data?._id}
               >
-                <div className="image-div lg:col-span-1 md:grid-cols-1 p-8 pl-0">
+                <div className="image-div lg:col-span-1 md:grid-cols-1 w-max">
                   <img
                     src={data?.image}
                     alt=""
-                    className="w-[100%] h-[100%] rounded-full object-cover object-top-bottom"
+                    className="w-[80px] h-[80px] rounded-full object-cover object-top-bottom"
                   />
                 </div>
                 <div className="info lg:col-span-2 md:grid-cols-1">
-                  <div className="title text-[16px] font-medium text-gray-900 dark:text-white">
+                  <div className="title text-[16px] font-medium text-gray-900 dark:text-white w-max">
                     {data?.title}
                   </div>
                   <div className="title text-[12px] font-light text-gray-900 dark:text-white services-disc mt-2">
